@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swap District - Register & Seek Swapmate</title>
+  <style>
+    body {
+      background: beige;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #007bff;
+      padding: 10px;
+      text-align: center;
+    }
+    marquee {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: blue;
+    }
+    #flag {
+      height: 30px;
+      margin-left: 10px;
+      vertical-align: middle;
+      animation: wave 2s infinite;
+    }
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(15deg); }
+    }
+    main {
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #aaa;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <marquee behavior="scroll" direction="left">
+      Welcome to Swap District <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg" id="flag" alt="Kenyan Flag">
+    </marquee>
+  </header>
+
+  <main>
+    <div id="registrationSection">
+      <h2>Register</h2>
+      
+        <form id="registrationForm" action="register.php" method="POST">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]+" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="occupation">Occupation:</label>
+        <select id="occupation" name="occupation" required>
+          <option value="">Select</option>
+          <option value="Primary Teacher">Primary Teacher</option>
+          <option value="JSS Teacher">JSS Teacher</option>
+          <option value="Secondary Teacher">Secondary Teacher</option>
+          <option value="TVET Trainer">TVET/TTC/KMTC Trainer</option>
+          <option value="Nurse">Nurse</option>
+          <option value="Police">Police</option>
+          <option value="Civil Servant">Civil Servant</option>
+        </select>
+
+        <label for="designation">Rank/Designation:</label>
+        <input type="text" id="designation" name="designation" required>
+
+        <label for="county">County:</label>
+        <select id="county" name="county" required></select>
+
+        <label for="subcounty">Sub-County:</label>
+        <input type="text" id="subcounty" name="subcounty" required>
+
+        <label for="institution">Institution:</label>
+        <input type="text" id="institution" name="institution" required>
+
+        <div id="subjectsDivReg" class="hidden">
+          <label for="subjects">Subjects:</label>
+          <input type="text" id="subjects" name="subjects" placeholder="e.g. English, Kiswahili">
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+    <div id="swapSection" class="hidden">
+      <h2>Seek Swapmate</h2>
+      <form id="swapForm" action="submit_swap.php" method="POST">
+        <label for="occupationSwap">Occupation:</label>
+        <select id="occupationSwap" name="occupationSwap" required>
+          <option value="">Select</option>
+          <option value="Primary Teacher">Primary Teacher</option>
+          <option value="JSS Teacher">JSS Teacher</option>
+          <option value="Secondary Teacher">Secondary Teacher</option>
+          <option value="TVET/TTC/KMTC Trainer">TVET/TTC/KMTC Trainer</option>
+          <option value="Nurse">Nurse</option>
+          <option value="Police">Police</option>
+          
+          <option value="Civil Servant">Civil Servant</option>
+        </select>
+
+        <label for="designationSwap">Rank/Designation:</label>
+        <input type="text" id="designationSwap" name="designationSwap" required>
+
+        <label for="currentCounty">Current County:</label>
+        <select id="currentCounty" name="currentCounty" required></select>
+
+        <label for="currentSubcounty">Current Sub-County:</label>
+        <input type="text" id="currentSubcounty" name="currentSubcounty" required>
+
+        <label for="currentInstitution">Current Institution:</label>
+        <input type="text" id="currentInstitution" name="currentInstitution" required>
+
+        <label for="preferredCounty">Preferred County:</label>
+        <select id="preferredCounty" name="preferredCounty" required></select>
+
+        <label for="preferredSubcounty">Preferred Sub-County:</label>
+        <input type="text" id="preferredSubcounty" name="preferredSubcounty" required>
+
+        <label for="preferredInstitution1">Preferred Institution 1:</label>
+        <input type="text" id="preferredInstitution1" name="preferredInstitution1" required>
+
+        <label for="preferredInstitution2">Preferred Institution 2 (optional):</label>
+        <input type="text" id="preferredInstitution2" name="preferredInstitution2">
+
+        <label for="preferredInstitution3">Preferred Institution 3 (optional):</label>
+        <input type="text" id="preferredInstitution3" name="preferredInstitution3">
+
+        <div id="subjectsDivSwap" class="hidden">
+          <label for="subjectsSwap">Subjects:</label>
+          <input type="text" id="subjectsSwap" name="subjectsSwap" placeholder="e.g. Science, CRE">
+        </div>
+
+        <button type="submit">Find Swapmate</button>
+      </form></div>
+    
+  </main>
+
+ 
+<script>
+  window.onload = function () {
+    const counties = [
+      "Mombasa", "Kwale", "Kilifi", "Tana River", "Lamu", "Taita-Taveta",
+      "Garissa", "Wajir", "Mandera", "Marsabit", "Isiolo", "Meru", "Tharaka-Nithi",
+      "Embu", "Kitui", "Machakos", "Makueni", "Nyandarua", "Nyeri", "Kirinyaga",
+      "Murang'a", "Kiambu", "Turkana", "West Pokot", "Samburu", "Trans-Nzoia",
+      "Uasin Gishu", "Elgeyo-Marakwet", "Nandi", "Baringo", "Laikipia", "Nakuru",
+      "Narok", "Kajiado", "Kericho", "Bomet", "Kakamega", "Vihiga", "Bungoma",
+      "Busia", "Siaya", "Kisumu", "Homa Bay", "Migori", "Kisii", "Nyamira", "Nairobi"
+    ];
+
+    function populateCounties(selectId) {
+      const select = document.getElementById(selectId);
+      counties.forEach(county => {
+        const option = document.createElement("option");
+        option.value = county;
+        option.textContent = county;
+        select.appendChild(option);
+      });
+    }
+
+    populateCounties("county");
+    populateCounties("preferredCounty");
+    populateCounties("currentCounty");
+
+    const teachingOccupationsWithSubjects = ["JSS Teacher", "Secondary Teacher", "TVET Trainer"];
+
+    document.getElementById("occupation").addEventListener("change", function () {
+      document.getElementById("subjectsDivReg").classList.toggle(
+        "hidden",
+        !teachingOccupationsWithSubjects.includes(this.value)
+      );
+    });
+
+    document.getElementById("occupationSwap").addEventListener("change", function () {
+      document.getElementById("subjectsDivSwap").classList.toggle(
+        "hidden",
+        !teachingOccupationsWithSubjects.includes(this.value)
+      );
+    });
+
+    // ✅ REGISTRATION HANDLER
+    document.getElementById("registrationForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      fetch("register.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        console.log(data);
+        if (data.includes("✅")) {
+          alert("✅ Registration successful! Proceed to seek a swapmate.");
+          // Show swap form
+          document.getElementById("registrationSection").classList.add("hidden");
+          document.getElementById("swapSection").classList.remove("hidden");
+        } else {
+          alert("❌ Registration failed: " + data);
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("❌ An error occurred. Please try again.");
+      });
+    });
+  };
+
+</script>
+
+</body>
+</html>
