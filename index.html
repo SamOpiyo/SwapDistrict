@@ -10,6 +10,13 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+  background-image: url('https://www.bing.com/images/search?view=detailV2&ccid=3INDuuth&id=C69B8621CD540A1A3EDC49BBABC30B970F220CF0&thid=OIP.3INDuuthT344QwZOQBlUpQHaJp&mediaurl=https%3A%2F%2Fclipground.com%2Fimages%2Fclipart-kenya-5.png&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.dc8343baeb614f7e3843064e401954a5%3Frik%3D8AwiD5cLw6u7SQ%26pid%3DImgRaw%26r%3D0&exph=8000&expw=6141&q=kenyan+flag&simid=608027161013872736&form=IRPRST&ck=B3571E67EB349EF706684C1CA81E7B7E&selectedindex=1&itb=0&ajaxhist=0&ajaxserp=0&vt=0&sim=11');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+
     }
     header {
       background: #007bff;
@@ -65,10 +72,59 @@
     .hidden {
       display: none;
     }
+    .footer {
+      text-align: center;
+      padding: 7px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 12px;
+    }
+    #appIntro {
+  background-color: #f0f8ff;
+  text-align: center;
+  padding: 20px;
+  animation: fadeInMove 2s ease-out;
+  border-bottom: 2px solid #007bff;
+}
+
+#appIntro h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #007bff;
+}
+
+#appIntro p {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #333;
+}
+
+@keyframes fadeInMove {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
   </style>
 </head>
 <body>
   <header>
+    <section id="appIntro" class="animate">
+  <h2>🔄 Swap District, Transfers Made Easy!</h2>
+  <p>
+    Register your current work details, then find someone who wants to swap locations with you.
+    <br>Easy. Fast. Nationwide. 🎯
+  </p>
+</section>
+
     <marquee behavior="scroll" direction="left">
       Welcome to Swap District <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg" id="flag" alt="Kenyan Flag">
     </marquee>
@@ -245,6 +301,8 @@
   };
 
 </script>
-
+ <footer class="footer">
+    Samson Universe 2025 v1.0
+  </footer>
 </body>
 </html>
